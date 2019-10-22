@@ -93,9 +93,9 @@ echo Handling node.js deployment.
 call :SelectNodeVersion
 
 :: 2. Install npm packages
-IF EXIST "%DEPLOYMENT_TARGET%/package.json" (
+IF EXIST "%DEPLOYMENT_SOURCE%/package.json" (
   echo Installing node packages
-  pushd "%DEPLOYMENT_TARGET%"
+  pushd "%DEPLOYMENT_SOURCE%"
   call :ExecuteCmd !NPM_CMD! install --production
   IF !ERRORLEVEL! NEQ 0 goto error
   popd

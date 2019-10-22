@@ -21,7 +21,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-import {SelectModule  } from 'ng2-select/ng2-select'
 import { ControlDemoComponent, AlertDemoComponent, TextboxDemoComponent, ButtonDemoComponent, SelectDemoComponent  } from './control-demo';
 import { AlertMessageComponent } from './shared/components';
 
@@ -39,8 +38,7 @@ import { AlertMessageComponent } from './shared/components';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    SelectModule,
+    BrowserAnimationsModule,    
     AccordionModule.forRoot(),
     AlertModule.forRoot(),
     ButtonsModule.forRoot(),

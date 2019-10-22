@@ -1,0 +1,17 @@
+ul{
+    margin:0;
+    padding:0;
+    list-style-position: inside;
+}
+p.close-tip
+{
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+p.detail
+{
+    display: block;
+    margin-bottom: 0;
+}

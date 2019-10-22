@@ -1,0 +1,16 @@
+<div>
+    <h4>Simple Single Alert</h4>
+    <alert-message [successMessages]="successMessages" [successHeading]="successHeading"></alert-message>
+</div>
+<div>
+    <h4>Simple Multiple Alert</h4>
+    <alert-message [successMessages]="successMessages" [successHeading]="successHeading" [warningMessages]="warningMessages" [warningHeading]="warningHeading"></alert-message>
+</div>
+<div>
+    <h4>Dismissible List Alert</h4>
+    <alert-message [failureMessages]="errorMessages" [failureHeading]="errorHeading" collectionType="List" canClose="true"></alert-message>
+</div>
+<div>
+    <h4>List Alert Auto Close</h4>
+    <alert-message [successMessages]="successMessages1" [successHeading]="successHeading" autoClose="10"></alert-message>
+</div>

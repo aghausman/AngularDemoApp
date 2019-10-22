@@ -1,0 +1,60 @@
+<div class="col-xs-12">
+        <alert type="success" [dismissible]="CanClose" [dismissOnTimeout]="AutoCloseTime" (onClosed)="onClosed($event)" *ngIf="SuccessVisiblity">
+                <h4 class="alert-heading">{{successHeading}}</h4>
+                <ng-container *ngIf="IsList === false">
+                        <p class="detail" *ngFor="let message of successMessages; let i = index">
+                                {{message}}
+                        </p>
+                </ng-container>
+                
+                <ul *ngIf="IsList === true">
+                        <li *ngFor="let message of successMessages; let i = index">
+                                {{message}}
+                        </li>
+                </ul>
+
+                <p class="close-tip" *ngIf="CanAutoClose">
+                        This alert will close within <strong>{{localAutoClose}}</strong> seconds.
+                </p>
+        </alert>
+        <alert type="warning" [dismissible]="CanClose" [dismissOnTimeout]="AutoCloseTime" (onClosed)="onClosed($event)" *ngIf="WarningVisiblity">
+                <h4 class="alert-heading">{{warningHeading}}</h4>
+                <ng-container *ngIf="IsList === false">
+                        <p class="detail" *ngFor="let message of warningMessages; let i = index">
+                                {{message}}
+                        </p>
+                </ng-container>
+                
+                <ul *ngIf="IsList === true">
+                        <li *ngFor="let message of warningMessages; let i = index">
+                                {{message}}
+                        </li>
+                </ul>
+
+                <p class="close-tip" *ngIf="CanAutoClose">
+                        This alert will close within <strong>{{localAutoClose}}</strong> seconds.
+                </p>
+        </alert>
+        <alert type="danger" [dismissible]="CanClose" [dismissOnTimeout]="AutoCloseTime" (onClosed)="onClosed($event)" *ngIf="FailureVisiblity">
+                <h4 class="alert-heading">{{failureHeading}}</h4>
+                <ng-container *ngIf="IsList === false">
+                        <p  class="detail" *ngFor="let message of failureMessages; let i = index">
+                                {{message}}
+                        </p>
+                </ng-container>
+                
+                <ul *ngIf="IsList === true">
+                        <li *ngFor="let message of failureMessages; let i = index">
+                                {{message}}
+                        </li>
+                </ul>
+
+                <p class="close-tip" *ngIf="CanAutoClose">
+                        This alert will close within <strong>{{localAutoClose}}</strong> seconds.
+                </p>
+        </alert>
+</div>
+
+
+
+

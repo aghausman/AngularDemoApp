@@ -24,6 +24,9 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ControlDemoComponent, AlertDemoComponent, TextboxDemoComponent, ButtonDemoComponent, SelectDemoComponent  } from './control-demo';
 import { AlertMessageComponent } from './shared/components';
 import { OrgchartDemoComponent } from './orgchart-demo/orgchart-demo.component';
+import { HttpClientModule }  from '@angular/common/http';
+
+
 
 
 @NgModule({
@@ -34,13 +37,14 @@ import { OrgchartDemoComponent } from './orgchart-demo/orgchart-demo.component';
     ButtonDemoComponent,
     TextboxDemoComponent,
     SelectDemoComponent,
-    AlertMessageComponent,    
-    OrgchartDemoComponent    
+    AlertMessageComponent,
+    OrgchartDemoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,    
+    BrowserAnimationsModule,
+    HttpClientModule,
     AccordionModule.forRoot(),
     AlertModule.forRoot(),
     ButtonsModule.forRoot(),

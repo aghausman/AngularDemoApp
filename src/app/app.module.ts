@@ -23,6 +23,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ControlDemoComponent, AlertDemoComponent, TextboxDemoComponent, ButtonDemoComponent, SelectDemoComponent  } from './control-demo';
 import { AlertMessageComponent } from './shared/components';
+import { OrgchartDemoComponent } from './orgchart-demo/orgchart-demo.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { AlertMessageComponent } from './shared/components';
     ButtonDemoComponent,
     TextboxDemoComponent,
     SelectDemoComponent,
-    AlertMessageComponent    
+    AlertMessageComponent,    
+    OrgchartDemoComponent    
   ],
   imports: [
     BrowserModule,

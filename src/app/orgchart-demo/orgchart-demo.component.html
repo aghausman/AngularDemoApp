@@ -1,0 +1,36 @@
+<div class="chart-container">
+
+  <div class="block" *ngIf="parentNode !== undefined">
+    <div class="node parent-node">
+      <h4>{{ parentNode.Name }}</h4>
+      <img class="mug-shot" src="{{ parentNode.Photo }}"/>    
+      <span class="node-details">{{ parentNode.Designation }}</span>         
+    </div>
+  </div>
+  <div class="block" *ngIf="currentNode !== undefined">
+    <div class="node current-node">
+      <h4>{{currentNode.Name}}</h4>
+      <img class="mug-shot" src="{{ currentNode.Photo}}"/>
+      <span class="node-details">{{ currentNode.Department }}</span>
+      <span class="node-details">{{ currentNode.Designation}}</span>     
+      <div class="contact-details">
+        <i class="fas fa-phone"></i>
+        {{ currentNode.Phone }}
+        <i class="fas fa-envelope"></i>
+        {{ currentNode.Email }}
+      </div>
+    </div>
+  </div>
+  <div class="block " *ngIf="childNodes !== undefined && childNodes.length > 0">
+    <div class="child-container">
+        <div class="node child-node" *ngFor="let staff of childNodes; let i = index">
+            <h4>{{ staff.Name }}</h4>
+            <img class="mug-shot" src="{{staff.Photo}}"/>    
+            <span class="node-details">{{staff.Designation}}</span>         
+          </div>
+    </div>
+  </div>
+  
+
+
+</div>

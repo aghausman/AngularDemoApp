@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ControlDemoComponent, AlertDemoComponent, ButtonDemoComponent, TextboxDemoComponent, SelectDemoComponent  } from './control-demo'
+import { ControlDemoComponent, AlertDemoComponent, ButtonDemoComponent, TextboxDemoComponent, SelectDemoComponent } from './control-demo'
+import { OrgchartDemoComponent } from './orgchart-demo';
 import { componentFactoryName } from '@angular/compiler';
+
 
 
 const routes: Routes = [
@@ -31,6 +33,10 @@ const routes: Routes = [
        pathMatch:'full'
       }
     ]
+  },
+  {
+    path:'orgchart-demo',
+    component:OrgchartDemoComponent
   }
 ];
 

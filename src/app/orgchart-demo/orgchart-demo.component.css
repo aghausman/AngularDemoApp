@@ -1,0 +1,136 @@
+.current-node
+{
+    background:#efefef;
+    min-width: 100px;
+    display:inline-block;
+    padding:10px;
+    border:1px solid rgb(78, 56, 56);
+    position: relative;
+    text-align: left;
+}
+
+.current-node h4
+{
+    margin-bottom: 0px;
+}
+
+.current-node .node-details
+{
+    font-size: 0.8em;
+    display: block;
+}
+
+.current-node .contact-details
+{
+    padding-top:5px;
+    font-size:0.95em;
+}
+
+.current-node .mug-shot
+{
+    width:60px;
+    position: absolute;
+    top:0px;
+    right:10px;
+    border-radius: 50%;    
+}
+
+
+.parent-node
+{
+    background:#efefef;
+    min-width: 100px;
+    display:inline-block;
+    padding:10px;
+    border:1px solid #cac8c8;
+    position: relative;
+    text-align: left;
+    margin-bottom: 10px;
+    
+}
+
+.parent-node h4
+{
+    margin-bottom: 0px;
+}
+
+.parent-node .node-details
+{
+    font-size: 0.8em;
+    display: block;
+}
+
+.parent-node .contact-details
+{
+    padding-top:5px;
+    font-size:0.95em;
+}
+
+.parent-node .mug-shot
+{
+    width:60px;
+    position: absolute;
+    top:0px;
+    right:10px;
+    border-radius: 50%;    
+}
+
+
+.child-node
+{
+    background:#efefef;
+    min-width: 100px;
+    display:inline-block;
+    padding:10px;
+    border:1px solid #cac8c8;
+    position: relative;
+    text-align: left;
+    margin-top: 10px;
+    margin-right: 10px;
+    
+}
+
+.child-node h4
+{
+    margin-bottom: 0px;
+}
+
+.child-node .node-details
+{
+    font-size: 0.8em;
+    display: block;
+}
+
+.child-node .contact-details
+{
+    padding-top:5px;
+    font-size:0.95em;
+}
+
+.child-node .mug-shot
+{
+    width:60px;
+    position: absolute;
+    top:0px;
+    right:10px;
+    border-radius: 50%;    
+}
+
+.child-container {
+    margin-top:5px;
+    border-top: 1px solid black;
+    display: inline-block;
+}
+
+
+.node
+{
+    min-width: 350px;
+}
+.chart-container
+{
+    text-align: center;
+}
+
+
+

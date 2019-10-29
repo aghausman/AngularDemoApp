@@ -1,0 +1,23 @@
+<div class="col-12">
+    <label>{{ caption }}</label>    
+    <span class="text-danger ml-1" *ngIf="isRequired === true && hintRequired === true">*</span>  
+    <div class="input-group" >
+        <div class="input-group-prepend" *ngIf="icon!== undefined && icon!=''">
+            <span class="input-group-text"><i class="fa {{icon}}"></i></span>
+        </div>
+
+        <span class="form-control-readonly" *ngIf="readonly == true">
+            {{inputModel}}
+        </span>
+
+        <input *ngIf="readonly != true" #control="ngModel" [id]="id" type="text" class="form-control" [placeholder]="caption" 
+        [(ngModel)]="inputModel" (ngModelChange)="onTextChange()" [maxlength]="maxLength"
+        [required]="isRequired === true ? '' : null"  
+        [ngClass]="{'invalid': !control.valid, 'valid': control.valid }"> 
+
+
+        <div *ngIf="(readonly == false) && (control.invalid && hideFeedback === false)" class="invalid-feedback">
+                <div *ngIf="(readonly == false) && (control.errors.required)">{{ caption }} is required</div>
+                <div *ngIf="(readonly == false) && (control.errors.maxlength)">{{ caption }} should be {{ control.errors.maxlength.requiredLength }} characters long </div>        </div>
+        </div>
+  </div>

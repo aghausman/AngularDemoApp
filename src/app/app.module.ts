@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +23,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ControlDemoComponent, AlertDemoComponent, TextboxDemoComponent, ButtonDemoComponent, SelectDemoComponent  } from './control-demo';
-import { AlertMessageComponent } from './shared/components';
+import { AlertMessageComponent, TextBoxComponent } from './shared/components';
 import { OrgchartDemoComponent } from './orgchart-demo/orgchart-demo.component';
 import { HttpClientModule }  from '@angular/common/http';
 
@@ -38,13 +39,15 @@ import { HttpClientModule }  from '@angular/common/http';
     TextboxDemoComponent,
     SelectDemoComponent,
     AlertMessageComponent,
-    OrgchartDemoComponent
+    OrgchartDemoComponent,
+    TextBoxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     AccordionModule.forRoot(),
     AlertModule.forRoot(),
     ButtonsModule.forRoot(),
@@ -62,6 +65,7 @@ import { HttpClientModule }  from '@angular/common/http';
     TimepickerModule.forRoot(),
     TooltipModule.forRoot(),
     TypeaheadModule.forRoot()
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

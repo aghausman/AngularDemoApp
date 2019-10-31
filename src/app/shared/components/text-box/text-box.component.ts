@@ -8,6 +8,10 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, 
 export class TextBoxComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('control', {static: false}) inputBox : ElementRef;
+  @ViewChild('valuelabel', {static: false}) labelBox : ElementRef;
+  
+
+
 
   @Input() id:string;
   @Input() caption:string;
@@ -43,5 +47,48 @@ export class TextBoxComponent implements OnInit, AfterViewChecked {
   onTextChange() {
     this.onChange.emit(this.inputModel);
     this.textCount = this.inputModel.length;
+  }
+
+  getValidationSpanVisiblity() :boolean{
+    let control =  this.getUnderlyingControl();
+
+    if (control != undefined)
+    {
+      console.log("control is not undefined");
+      
+      if (control["invalid"] != undefined)
+      {
+          console.log("control has required property");
+          return (control["invalid"] && this.hideFeedback === false);
+      }
+    }
+    
+    return false;    
+  }
+
+  getValidationErrorVisiblity(propertyName: string): boolean
+  {
+    let control =  this.getUnderlyingControl();
+
+    if (control != undefined)
+    {
+      if (control["errors"])
+      {
+        return control["errors"][propertyName];
+      }
+    }
+    
+    return false;
+  }
+
+  getUnderlyingControl() : ElementRef  {
+    if (this.readonly == false)
+    {           
+      return this.inputBox;      
+    }
+    else
+    { 
+      return this.labelBox;
+    }    
   }
 }

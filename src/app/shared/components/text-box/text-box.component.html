@@ -6,7 +6,7 @@
             <span class="input-group-text"><i class="fa {{icon}}"></i></span>
         </div>
 
-        <span class="form-control-readonly" *ngIf="readonly == true">
+        <span class="form-control-readonly"   *ngIf="readonly == true" #valuelabel>
             {{inputModel}}
         </span>
 
@@ -15,6 +15,10 @@
         [required]="isRequired === true ? '' : null"  
         [ngClass]="{'invalid': !control.valid, 'valid': control.valid }"> 
 
+        <!-- <div *ngIf="getValidationSpanVisiblity()" class="invalid-feedback">
+            <div *ngIf="getValidationErrorVisiblity('required')">{{ caption }} is required</div>
+            <div *ngIf="getValidationErrorVisiblity('maxLength')">{{ caption }} should be {{ control.errors.maxlength.requiredLength }} characters long </div> 
+    </div> -->
 
         <div *ngIf="(readonly == false) && (control.invalid && hideFeedback === false)" class="invalid-feedback">
                 <div *ngIf="(readonly == false) && (control.errors.required)">{{ caption }} is required</div>

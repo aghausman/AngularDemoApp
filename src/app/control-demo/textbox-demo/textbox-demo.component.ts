@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextboxDemoComponent implements OnInit {
 
-  data1:string = "Textbox";
+  data1:string = "This is readonly textbox This is readonly textbox";
   data2:string = "";
 
   data3:string = "This is readonly textbox";

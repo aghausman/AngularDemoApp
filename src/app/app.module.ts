@@ -26,6 +26,7 @@ import { ControlDemoComponent, AlertDemoComponent, TextboxDemoComponent, ButtonD
 import { AlertMessageComponent, TextBoxComponent } from './shared/components';
 import { OrgchartDemoComponent } from './orgchart-demo/orgchart-demo.component';
 import { HttpClientModule }  from '@angular/common/http';
+import { CopyClipboardDirective } from './shared/directives/copy-clipboard.directive';
 
 
 
@@ -40,7 +41,8 @@ import { HttpClientModule }  from '@angular/common/http';
     SelectDemoComponent,
     AlertMessageComponent,
     OrgchartDemoComponent,
-    TextBoxComponent
+    TextBoxComponent,
+    CopyClipboardDirective
   ],
   imports: [
     BrowserModule,

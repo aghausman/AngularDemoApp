@@ -7,9 +7,10 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, 
 })
 export class TextBoxComponent implements OnInit, AfterViewChecked {
 
-  @ViewChild('control', {static: false}) inputBox : ElementRef;
+  @ViewChild('textbox', {static: false}) inputBox : ElementRef;
   @ViewChild('valuelabel', {static: false}) labelBox : ElementRef;
-  
+  @ViewChild('textarea', {static: false}) inputArea : ElementRef;
+
 
 
 
@@ -28,7 +29,7 @@ export class TextBoxComponent implements OnInit, AfterViewChecked {
 
   @Output() onChange = new EventEmitter<string>();
 
-  textCount: number;  
+  textCount: number;
 
 
   constructor(private cdr: ChangeDetectorRef) { }
@@ -36,12 +37,17 @@ export class TextBoxComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked()
   {
     this.cdr.detectChanges();
+
   }
 
   ngOnInit() {
-    this.textCount = this.inputModel === undefined ? 0 : this.inputModel.length;    
+    this.textCount = this.inputModel === undefined ? 0 : this.inputModel.length;
     this.hideFeedback = this.hideFeedback === undefined ? false : this.hideFeedback;
-    this.readonly = this.readonly === undefined ? false: this.readonly;    
+    this.readonly = this.readonly === undefined ? false: this.readonly;
+    this.isMultiLine = this.isMultiLine === undefined ? false: this.isMultiLine;
+
+    console.log(this.getUnderlyingControl());
+
   }
 
   onTextChange() {
@@ -49,46 +55,18 @@ export class TextBoxComponent implements OnInit, AfterViewChecked {
     this.textCount = this.inputModel.length;
   }
 
-  getValidationSpanVisiblity() :boolean{
-    let control =  this.getUnderlyingControl();
-
-    if (control != undefined)
-    {
-      console.log("control is not undefined");
-      
-      if (control["invalid"] != undefined)
-      {
-          console.log("control has required property");
-          return (control["invalid"] && this.hideFeedback === false);
-      }
-    }
-    
-    return false;    
-  }
-
-  getValidationErrorVisiblity(propertyName: string): boolean
-  {
-    let control =  this.getUnderlyingControl();
-
-    if (control != undefined)
-    {
-      if (control["errors"])
-      {
-        return control["errors"][propertyName];
-      }
-    }
-    
-    return false;
-  }
-
   getUnderlyingControl() : ElementRef  {
-    if (this.readonly == false)
-    {           
-      return this.inputBox;      
+    if (this.readonly == false && this.isMultiLine == false)
+    {
+      return this.inputBox;
+    }
+    else if (this.readonly == false && this.isMultiLine == true)
+    {
+      return this.inputArea;
     }
     else
-    { 
+    {
       return this.labelBox;
-    }    
+    }
   }
 }

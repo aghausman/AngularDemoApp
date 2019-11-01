@@ -1,0 +1,7 @@
+.readonly-label .clipboard{
+  display: none;
+}
+
+.readonly-label:hover .clipboard{
+  display: inline;
+}

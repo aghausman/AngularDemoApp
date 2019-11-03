@@ -27,7 +27,9 @@ import { AlertMessageComponent, TextBoxComponent } from './shared/components';
 import { OrgchartDemoComponent } from './orgchart-demo/orgchart-demo.component';
 import { HttpClientModule }  from '@angular/common/http';
 import { CopyClipboardDirective } from './shared/directives/copy-clipboard.directive';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 
 
@@ -66,7 +68,8 @@ import { CopyClipboardDirective } from './shared/directives/copy-clipboard.direc
     TabsModule.forRoot(),
     TimepickerModule.forRoot(),
     TooltipModule.forRoot(),
-    TypeaheadModule.forRoot()
+    TypeaheadModule.forRoot(),
+    NgxMaskModule.forRoot(options)
     
   ],
   providers: [],

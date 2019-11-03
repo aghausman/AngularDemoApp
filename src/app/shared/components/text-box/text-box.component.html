@@ -3,13 +3,15 @@
     <span class="text-danger ml-1" *ngIf="isRequired === true && hintRequired === true">*</span>
     <div>
 
-      <div class="col-12 readonly-label"  *ngIf="readonly" >
+    <ng-template #tooltipTemplate>{{ clipBoardTipText }}</ng-template>
+      <div class="col-12 readonly-label"  *ngIf="readonly" (mouseenter)="clipBoardTipText = 'Copy to Clipboard'" >
           <span class="form-control-readonly" #valuelabel>
               {{inputModel}}
           </span>
 
-          <a role="button" [copy-clipboard]="inputModel" (copied)="notify($event)" class="clipboard" tooltip="Copy to Clipboard">
-              <i class="fa fa-clipboard"></i>
+          <a role="button" [copy-clipboard]="inputModel" (on-copied)="onLabelTextCopied($event)" class="clipboard" 
+            [tooltip]="tooltipTemplate">
+              <i class="fa fa-copy"></i>
           </a>
       </div>
 
@@ -23,7 +25,11 @@
             <input #textbox="ngModel" [id]="id" type="text" class="form-control" [placeholder]="caption"
             [(ngModel)]="inputModel" (ngModelChange)="onTextChange()" [maxlength]="maxLength"
             [required]="isRequired === true ? '' : null"
-            [ngClass]="{'invalid': !textbox.valid, 'valid': textbox.valid }">
+            [ngClass]="{'invalid': !textbox.valid, 'valid': textbox.valid }"
+            [mask]="mask == '' ? null : mask"            
+            [prefix]="prefix == '' ? null : prefix"                        
+            [thousandSeparator]="thousandSeparator == '' ? null : thousandSeparator"
+            >
 
             <div *ngIf="(textbox.invalid && hideFeedback === false)" class="invalid-feedback">
                 <div *ngIf="(textbox.errors.required)">{{ caption }} is required</div>

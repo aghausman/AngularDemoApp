@@ -46,6 +46,17 @@
 
         </div>
 
+        <div>
+                <h5>Masked Input</h5>
+
+                <input type="text" prefix="$ " mask="separator" thousandSeparator=",">
+
+
+                <text-box id="txtAmount" caption="Price" [(inputModel)]="price" 
+                format="currency"  >
+                </text-box>
+        </div>
+
         <div class="form-buttons mt-2">
                 <button type="submit" class="btn btn-success">Submit</button>
         </div>

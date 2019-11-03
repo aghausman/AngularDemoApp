@@ -12,7 +12,9 @@ export class TextboxDemoComponent implements OnInit {
   data2:string = "";
   data3:string = "This is readonly textbox";
 
+  numberOfSeats: string = "";
   comments:string = "";
+  price:number;
 
   constructor() { }
 

@@ -1,12 +1,43 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewChecked, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewChecked, ChangeDetectorRef, forwardRef   } from '@angular/core';
+import {NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms'
 import { NgxMaskModule } from 'ngx-mask'
 
 @Component({
   selector: 'text-box',
   templateUrl:'./text-box.component.html',
-  styleUrls: ['./text-box.component.css']
+  styleUrls: ['./text-box.component.css'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(()=> TextBoxComponent) ,
+    multi:true
+  }]
 })
-export class TextBoxComponent implements OnInit, AfterViewChecked {
+
+
+
+export class TextBoxComponent implements OnInit, AfterViewChecked, ControlValueAccessor {
+
+  writeValue(obj: any): void
+  {
+    if ( this.getUnderlyingControl() && obj) {
+      this.getUnderlyingControl().nativeElement.value = obj;
+    }
+  }
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    throw new Error("Method not implemented.");
+  }
+
+
+  onTouched = () => {};
+  onChange = ()=> {};
+
+
 
   @ViewChild('textbox', {static: false}) inputBox : ElementRef;
   @ViewChild('valuelabel', {static: false}) labelBox : ElementRef;
@@ -17,7 +48,6 @@ export class TextBoxComponent implements OnInit, AfterViewChecked {
   @Input() caption:string;
   @Input() icon:string;
   @Input() maxLength:number;
-  @Input() class:string;
   @Input() isRequired:boolean;
   @Input() hintRequired:boolean;
   @Input() isMultiLine:boolean;
@@ -27,15 +57,13 @@ export class TextBoxComponent implements OnInit, AfterViewChecked {
   @Input() format:string;
 
 
-  @Output() onChange = new EventEmitter<string>();
-
   textCount: number;
   clipBoardTipText: string;
   suffix:string;
   prefix:string;
   thousandSeparator:string;
   mask:string;
-  
+
 
 
   constructor(private cdr: ChangeDetectorRef) { }
@@ -65,13 +93,13 @@ export class TextBoxComponent implements OnInit, AfterViewChecked {
 
         this.mask = "separator.2";
         this.prefix = "$";
-        this.thousandSeparator = ",";                
+        this.thousandSeparator = ",";
         break;
       }
       case "phone": {
         this.mask = "ph";
         break;
-      }      
+      }
       case "number": {
         this.mask = "0";
         break;
@@ -93,12 +121,7 @@ export class TextBoxComponent implements OnInit, AfterViewChecked {
 
   }
 
-  onTextChange() {
-    this.onChange.emit(this.inputModel);
-    this.textCount = this.inputModel.length;
-  }
-
-  onLabelTextCopied(event: any) : void {    
+  onLabelTextCopied(event: any) : void {
     this.clipBoardTipText = "Copied"
   }
 

@@ -1,5 +1,9 @@
 
-<form (ngSubmit)="onSubmit()" [ngClass]="{'was-validated': wasValidated === true }" novalidate>
+<form (ngSubmit)="onSubmit()" [ngClass]="{'was-validated': wasValidated === true }" novalidate #myForm="ngForm">
+
+
+
+
         <div class="row">
                 <div class="border border-primary col-8">
                         Test
@@ -8,13 +12,19 @@
                         Test
                 </div>
         </div>
+        <input type="text" name="txtTestField" [(ngModel)]="customerName" [required]="true" />
         <div>
                 <h5>Fields with feedback</h5>
                 <div class="row">
-                        <text-box id="txtName" caption="Name" class="col-8"  maxLength="10" [isRequired]="true" [hintRequired]="true" [(inputModel)]="data1"  >
+                        <text-box id="txtCustomerName" caption="Customer Name" class="col-4"  maxLength="10" [isRequired]="true" [hintRequired]="true" [(inputModel)]="customerName" icon="fa-user">
                         </text-box>
-                        <text-box id="txtMobile" caption="Mobile"  class="col-4" maxLength="10" [isRequired]="true" [hintRequired]="true" [(inputModel)]="data2" icon="fa-mobile" >
+                        <text-box id="txtAddress" caption="Address"  class="col-8" maxLength="10" [isRequired]="true" [hintRequired]="true" [(inputModel)]="address" icon="fa-home" >
                         </text-box>
+                </div>
+
+                <div>
+                      Input control:
+                      {{myForm.controls["txtTestField"].status}}
                 </div>
 
         </div>
@@ -23,9 +33,7 @@
         <div>
                 <h5>Fields without feedback</h5>
 
-                <text-box id="txtName1" caption="Name" maxLength="10" [isRequired]="true" [hintRequired]="true" [(inputModel)]="data1" [hideFeedback]="true"  >
-                </text-box>
-                <text-box id="txtMobile1" caption="Mobile" maxLength="10" [isRequired]="true" [hintRequired]="true" [(inputModel)]="data2"  [hideFeedback]="true">
+                <text-box id="txtProfession" caption="Job Title" maxLength="10" [isRequired]="true" [hintRequired]="true" [(inputModel)]="jobTitle" [hideFeedback]="true"  >
                 </text-box>
         </div>
 
@@ -48,14 +56,16 @@
 
         <div>
                 <h5>Masked Input</h5>
+                <div class="row">
+                  <text-box id="txtAmount" caption="Price" [(inputModel)]="price" format="currency"  icon="fa-dollar-sign" class="col-8" >
+                  </text-box>
+                </div>
 
-                <input type="text" prefix="$ " mask="separator" thousandSeparator=",">
-
-
-                <text-box id="txtAmount" caption="Price" [(inputModel)]="price" 
-                format="currency"  >
-                </text-box>
         </div>
+
+        <p>
+          Form Status: {{ myForm.status }}
+        </p>
 
         <div class="form-buttons mt-2">
                 <button type="submit" class="btn btn-success">Submit</button>

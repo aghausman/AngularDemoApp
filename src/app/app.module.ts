@@ -27,7 +27,8 @@ import { AlertMessageComponent, TextBoxComponent } from './shared/components';
 import { OrgchartDemoComponent } from './orgchart-demo/orgchart-demo.component';
 import { HttpClientModule }  from '@angular/common/http';
 import { CopyClipboardDirective } from './shared/directives/copy-clipboard.directive';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { CommonModule } from '@angular/common';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -52,6 +53,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    CommonModule,
     AccordionModule.forRoot(),
     AlertModule.forRoot(),
     ButtonsModule.forRoot(),
@@ -70,7 +72,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     TooltipModule.forRoot(),
     TypeaheadModule.forRoot(),
     NgxMaskModule.forRoot(options)
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

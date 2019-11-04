@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {  Validators, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextboxDemoComponent implements OnInit {
 
-  data1:string = "This is readonly textbox This is readonly textbox";
-  data2:string = "";
-  data3:string = "This is readonly textbox";
+  @ViewChild('myForm', {static: false}) inputBox : ElementRef;
+
+  customerName:string = "Jessica Tyndall";
+  address:string = "";
 
   numberOfSeats: string = "";
   comments:string = "";

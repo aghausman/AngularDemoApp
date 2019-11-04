@@ -1,1 +1,21 @@
-<p>select-demo works!</p>
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+
+    <simple-text-box name="Custom Control"  [(ngModel)]="customconvalue" [required]="true"></simple-text-box>
+    
+    
+    <label>Native control</label>
+    <input type="text" name="txtNativeControl" [(ngModel)]="customerName" [required]="true" />
+    
+    <input type="text" name="txtTestField" [(ngModel)]="nativeconvalue" [required]="true" />
+
+    <div>
+        Form Status : {{myForm.status}}
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+
+    Cusomt Value: {{customconvalue}}
+</form>
+
+

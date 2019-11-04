@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-select-demo',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectDemoComponent implements OnInit {
 
+  @ViewChild('myForm', {static: false}) formElement : ElementRef;
+
+
+  customconvalue:string = "";
+  nativeconvalue:string = "";
+  customerName:string = "Jessica Tyndall";
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    console.log(this.formElement.nativeElement.status);
   }
 
 }

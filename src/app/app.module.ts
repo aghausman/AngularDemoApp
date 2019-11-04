@@ -29,6 +29,7 @@ import { HttpClientModule }  from '@angular/common/http';
 import { CopyClipboardDirective } from './shared/directives/copy-clipboard.directive';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
+import { SimpleTextBoxComponent } from './simple-text-box/simple-text-box.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -45,7 +46,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AlertMessageComponent,
     OrgchartDemoComponent,
     TextBoxComponent,
-    CopyClipboardDirective
+    CopyClipboardDirective,
+    SimpleTextBoxComponent
   ],
   imports: [
     BrowserModule,
